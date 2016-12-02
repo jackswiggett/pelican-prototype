@@ -19,6 +19,9 @@
 		78BB01051DF0FABA00C655C1 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB01041DF0FABA00C655C1 /* FriendsViewController.swift */; };
 		78BB01071DF0FAC400C655C1 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB01061DF0FAC400C655C1 /* ProgressViewController.swift */; };
 		78BB010B1DF106B300C655C1 /* SWRevealNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB010A1DF106B300C655C1 /* SWRevealNavigationBar.swift */; };
+		78BB010D1DF1268D00C655C1 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB010C1DF1268D00C655C1 /* LeaderboardTableViewCell.swift */; };
+		78BB01101DF1310D00C655C1 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB010F1DF1310D00C655C1 /* AppData.swift */; };
+		78BB01121DF1318800C655C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB01111DF1318800C655C1 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		78BB01041DF0FABA00C655C1 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		78BB01061DF0FAC400C655C1 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		78BB010A1DF106B300C655C1 /* SWRevealNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWRevealNavigationBar.swift; sourceTree = "<group>"; };
+		78BB010C1DF1268D00C655C1 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
+		78BB010F1DF1310D00C655C1 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		78BB01111DF1318800C655C1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 		78BB00D81DF0F37100C655C1 /* Pelican */ = {
 			isa = PBXGroup;
 			children = (
+				78BB010E1DF130E600C655C1 /* AppData */,
 				78BB00F91DF0F3AA00C655C1 /* SWRevealViewController */,
 				78BB00D91DF0F37100C655C1 /* AppDelegate.swift */,
 				78BB00DD1DF0F37100C655C1 /* Main.storyboard */,
@@ -98,6 +105,7 @@
 				78BB01021DF0FAAB00C655C1 /* FeedViewController.swift */,
 				78BB01041DF0FABA00C655C1 /* FriendsViewController.swift */,
 				78BB01061DF0FAC400C655C1 /* ProgressViewController.swift */,
+				78BB010C1DF1268D00C655C1 /* LeaderboardTableViewCell.swift */,
 				78BB01001DF0F8A800C655C1 /* DiscoverViewController.swift */,
 				78BB00E01DF0F37100C655C1 /* Assets.xcassets */,
 				78BB00E21DF0F37100C655C1 /* LaunchScreen.storyboard */,
@@ -124,6 +132,15 @@
 				78BB00FC1DF0F3F700C655C1 /* Pelican-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		78BB010E1DF130E600C655C1 /* AppData */ = {
+			isa = PBXGroup;
+			children = (
+				78BB010F1DF1310D00C655C1 /* AppData.swift */,
+				78BB01111DF1318800C655C1 /* User.swift */,
+			);
+			name = AppData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,12 +249,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				78BB010B1DF106B300C655C1 /* SWRevealNavigationBar.swift in Sources */,
+				78BB010D1DF1268D00C655C1 /* LeaderboardTableViewCell.swift in Sources */,
 				78BB01011DF0F8A800C655C1 /* DiscoverViewController.swift in Sources */,
 				78BB01031DF0FAAB00C655C1 /* FeedViewController.swift in Sources */,
 				78BB01071DF0FAC400C655C1 /* ProgressViewController.swift in Sources */,
 				78BB00DA1DF0F37100C655C1 /* AppDelegate.swift in Sources */,
 				78BB01051DF0FABA00C655C1 /* FriendsViewController.swift in Sources */,
 				78BB00FF1DF0F3F700C655C1 /* SWRevealViewController.m in Sources */,
+				78BB01121DF1318800C655C1 /* User.swift in Sources */,
+				78BB01101DF1310D00C655C1 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
