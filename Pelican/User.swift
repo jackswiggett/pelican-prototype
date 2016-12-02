@@ -31,7 +31,15 @@ class User {
 
 /* Represents the current user of the application */
 class ThisUser : User {
-    override init(firstName: String, lastName: String, profilePhoto: UIImage?, points: Int, pointsThisWeek: Int, pointsThisMonth: Int) {
+    let pointsDataThisWeek: [Int]
+    let pointsDataThisMonth: [Int]
+    let pointsDataAllTime: [Int]
+    
+    init(firstName: String, lastName: String, profilePhoto: UIImage?, points: Int, pointsThisWeek: Int, pointsThisMonth: Int, pointsDataThisWeek: [Int], pointsDataThisMonth: [Int], pointsDataAllTime: [Int]) {
+        self.pointsDataThisWeek = pointsDataThisWeek
+        self.pointsDataThisMonth = pointsDataThisMonth
+        self.pointsDataAllTime = pointsDataAllTime
+        
         super.init(firstName: firstName, lastName: lastName, profilePhoto: profilePhoto, points: points, pointsThisWeek: pointsThisWeek, pointsThisMonth: pointsThisMonth)
     }
 }

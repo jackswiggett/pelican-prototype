@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Charts
 
-class ProgressViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProgressViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChartViewDelegate {
 
     // MARK: Properties
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var leaderboardTableView: UITableView!
+    @IBOutlet weak var chartView: LineChartView!
+    
     let numUsersInLeaderboard = 10
     var leaderboardUsers = [User]()
     var timeScale = TimeScale.week
@@ -36,9 +39,12 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
             menuButton.target = revealViewController
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
         updateLeaderboardUsers()
+        initializeChart()
+        updateChartData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +58,7 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
         timeScale = TimeScale(rawValue: sender.selectedSegmentIndex)!
         updateLeaderboardUsers()
         reloadLeaderboard()
+        updateChartData()
     }
     
     // MARK: Leaderboard Management
@@ -77,6 +84,48 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
     
     func reloadLeaderboard() {
         leaderboardTableView.reloadData()
+    }
+    
+    // MARK: Progress Chart Management
+    
+    func pointsData() -> [Int] {
+        switch timeScale {
+        case .week:
+            return AppData.thisUser.pointsDataThisWeek
+        case .month:
+            return AppData.thisUser.pointsDataThisMonth
+        case .allTime:
+            return AppData.thisUser.pointsDataAllTime
+        }
+    }
+    
+    func initializeChart() {
+        chartView.delegate = self
+        chartView.chartDescription?.text = ""
+        chartView.legend.enabled = false
+        
+        chartView.getAxis(.right).enabled = false
+        chartView.xAxis.enabled = false
+    }
+    
+    func updateChartData() {
+        let pointsData = self.pointsData()
+        
+        var dataEntries = [ChartDataEntry]()
+        for (index, value) in pointsData.enumerated() {
+            dataEntries += [ChartDataEntry(x: Double(index), y: Double(value))]
+        }
+        
+        let dataSet = LineChartDataSet(values: dataEntries, label: nil)
+        dataSet.circleRadius = 0
+        dataSet.setColor(.blue)
+        dataSet.lineWidth = 2
+        dataSet.drawValuesEnabled = false
+
+        let data = LineChartData(dataSet: dataSet)
+        
+        
+        chartView.data = data
     }
     
     // MARK: Table View Data Source

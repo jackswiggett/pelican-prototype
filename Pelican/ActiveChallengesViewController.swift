@@ -1,20 +1,18 @@
 //
-//  DiscoverViewController.swift
+//  ActiveChallengesViewController.swift
 //  Pelican
 //
-//  Created by Jack Swiggett on 12/1/16.
+//  Created by Jack Swiggett on 12/2/16.
 //  Copyright © 2016 Pelitech. All rights reserved.
 //
 
 import UIKit
-import MapKit
 
-class DiscoverViewController: UIViewController {
+class ActiveChallengesViewController: UIViewController {
 
     // MARK: Properties
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var challengeMap: MKMapView!
     
     // MARK: View Lifecycle
     
@@ -27,7 +25,6 @@ class DiscoverViewController: UIViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            revealViewController.rearViewRevealWidth = 200
         }
     }
 

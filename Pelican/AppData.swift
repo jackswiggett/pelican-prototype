@@ -11,7 +11,11 @@ import UIKit
 /* Stores data about challenges and application users. Note that this is a prototype,
  * so data is hard-coded and will be reset when the application is reloaded. */
 class AppData {
-    static var thisUser = User(firstName: "Jane", lastName: "Doe", profilePhoto: #imageLiteral(resourceName: "profilePhotoThisUser"), points: 43, pointsThisWeek: 16, pointsThisMonth: 38)
+    static var thisUser = ThisUser(firstName: "Jane", lastName: "Doe", profilePhoto: #imageLiteral(resourceName: "profilePhotoThisUser"), points: 43, pointsThisWeek: 16, pointsThisMonth: 38,
+        pointsDataThisWeek: [27, 27, 33, 35, 38, 38, 43],
+        pointsDataThisMonth: [5, 10, 12, 21, 21, 27, 35, 43],
+        pointsDataAllTime: [0, 3, 5, 10, 12, 21, 21, 27, 35, 43]
+    )
     static var otherUsers = [
         User(firstName: "Shirley", lastName: "Scott", profilePhoto: #imageLiteral(resourceName: "profilePhotoFemale1"), points: 70, pointsThisWeek: 11, pointsThisMonth: 39),
         User(firstName: "Gus", lastName: "Ceelen", profilePhoto: #imageLiteral(resourceName: "profilePhotoMale1"), points: 112, pointsThisWeek: 18, pointsThisMonth: 30),

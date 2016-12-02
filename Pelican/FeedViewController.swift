@@ -24,6 +24,7 @@ class FeedViewController: UIViewController {
             menuButton.target = revealViewController
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
 
