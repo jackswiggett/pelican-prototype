@@ -18,6 +18,7 @@
 		78BB01031DF0FAAB00C655C1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB01021DF0FAAB00C655C1 /* FeedViewController.swift */; };
 		78BB01051DF0FABA00C655C1 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB01041DF0FABA00C655C1 /* FriendsViewController.swift */; };
 		78BB01071DF0FAC400C655C1 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB01061DF0FAC400C655C1 /* ProgressViewController.swift */; };
+		78BB010B1DF106B300C655C1 /* SWRevealNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB010A1DF106B300C655C1 /* SWRevealNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		78BB01021DF0FAAB00C655C1 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		78BB01041DF0FABA00C655C1 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		78BB01061DF0FAC400C655C1 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		78BB010A1DF106B300C655C1 /* SWRevealNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWRevealNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				78BB00F91DF0F3AA00C655C1 /* SWRevealViewController */,
 				78BB00D91DF0F37100C655C1 /* AppDelegate.swift */,
 				78BB00DD1DF0F37100C655C1 /* Main.storyboard */,
+				78BB010A1DF106B300C655C1 /* SWRevealNavigationBar.swift */,
 				78BB01021DF0FAAB00C655C1 /* FeedViewController.swift */,
 				78BB01041DF0FABA00C655C1 /* FriendsViewController.swift */,
 				78BB01061DF0FAC400C655C1 /* ProgressViewController.swift */,
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78BB010B1DF106B300C655C1 /* SWRevealNavigationBar.swift in Sources */,
 				78BB01011DF0F8A800C655C1 /* DiscoverViewController.swift in Sources */,
 				78BB01031DF0FAAB00C655C1 /* FeedViewController.swift in Sources */,
 				78BB01071DF0FAC400C655C1 /* ProgressViewController.swift in Sources */,
