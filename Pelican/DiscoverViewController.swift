@@ -14,7 +14,7 @@ class DiscoverViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var challengeMap: MKMapView!
-    let initialLocation = CLLocation(latitude: 37.426264, longitude: -122.171746)
+    let initialLocation = AppData.currentLocation
     let initialRegionDiameter : Double = 1400 // meters
     
     // MARK: View Lifecycle
@@ -33,30 +33,41 @@ class DiscoverViewController: UIViewController, MKMapViewDelegate {
         
         initializeMap()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refreshAnnotations()
+    }
 
     func initializeMap() {
         challengeMap.delegate = self
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate, initialRegionDiameter, initialRegionDiameter)
         challengeMap.setRegion(coordinateRegion, animated: true)
-        challengeMap.addAnnotations(AppData.challengeAnnotations)
     }
     
     // MARK: MapViewDelegate
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? ChallengeAnnotation {
-            let identifier = annotation.challengeType
             let view: ChallengeAnnotationView
-            if let dequeuedView = challengeMap.dequeueReusableAnnotationView(withIdentifier: identifier.rawValue) {
+            /*if let dequeuedView = challengeMap.dequeueReusableAnnotationView(withIdentifier: identifier.rawValue) {
                 dequeuedView.annotation = annotation
                 view = dequeuedView as! ChallengeAnnotationView
-            } else {
-                view = ChallengeAnnotationView(challengeAnnotation: annotation, reuseIdentifier: annotation.challengeType.rawValue)
-            }
+            } else {*/
+            view = ChallengeAnnotationView(challengeAnnotation: annotation, reuseIdentifier: annotation.challengeType.rawValue, discoverViewController: self)
+            return view
+        } else if let annotation = annotation as? SoloChallengesAnnotation {
+            let identifier = "soloChallenges"
+            let view = SoloChallengesAnnotationView(annotation: annotation, reuseIdentifier: identifier, discoverViewController: self)
             return view
         }
         return nil
+    }
+    
+    func refreshAnnotations() {
+        challengeMap.removeAnnotations(challengeMap.annotations)
+        challengeMap.addAnnotations(AppData.challengeAnnotations)
+        challengeMap.addAnnotation(AppData.soloChallengesAnnotation)
     }
     
     /*

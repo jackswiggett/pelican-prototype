@@ -8,51 +8,29 @@
 
 import UIKit
 
-internal let upwardOffset: CGFloat = 25 // offset to fill the space occupied by the annotation title, which is equal to " " (title cannot be nil or the callout will not load)
-internal let textWidth: CGFloat = 100
-internal let pointsWidth: CGFloat = 55
-internal let labelFont = UIFont.systemFont(ofSize: 15)
-internal let buttonMarginTop: CGFloat = 15
-internal let buttonWidth: CGFloat = 110
-internal let buttonHeight: CGFloat = 35
-internal let buttonCornerRadius: CGFloat = 10
-internal let sideMargin: CGFloat = 5
-internal let bottomMargin: CGFloat = 5
+fileprivate let upwardOffset: CGFloat = 30 // offset to fill the space occupied by the annotation title, which is equal to " " (title cannot be nil or the callout will not load)
+fileprivate let labelHeight: CGFloat = 45
+fileprivate let labelWidth: CGFloat = 140
+fileprivate let labelFont = UIFont.systemFont(ofSize: 15)
 
 class ChallengeAnnotationDetailView: UIView {
-
-    init(challengeAnnotation annotation: ChallengeAnnotation) {
+    let annotation: ChallengeAnnotation!
+    let discoverViewController: DiscoverViewController!
+    
+    init(challengeAnnotation annotation: ChallengeAnnotation, discoverViewController: DiscoverViewController) {
+        self.annotation = annotation
+        self.discoverViewController = discoverViewController
         super.init(frame: CGRect.zero)
         
-        let textLabel = UILabel(frame: CGRect.zero)
-        textLabel.numberOfLines = 0
-        textLabel.text = annotation.challenge.name
-        textLabel.font = labelFont
-        let textNeededSize = textLabel.sizeThatFits(CGSize(width: textWidth, height: CGFloat.greatestFiniteMagnitude))
-        textLabel.frame = CGRect(x: sideMargin, y: -1 * upwardOffset, width: textWidth, height: textNeededSize.height)
+        let label = UILabel(frame: CGRect(x: 0, y: -upwardOffset, width: labelWidth, height: labelHeight))
+        label.numberOfLines = 0
+        label.text = annotation.challenge.name
+        label.font = labelFont
+        self.addSubview(label)
         
-        let pointsLabel = UILabel(frame: CGRect(x: sideMargin + textWidth, y: -1 * upwardOffset, width: pointsWidth, height: textNeededSize.height))
-        pointsLabel.numberOfLines = 0
-        pointsLabel.text = String(annotation.challenge.points) + " pts"
-        pointsLabel.font = labelFont
-        pointsLabel.textAlignment = .right
+        let widthConstraint = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: labelWidth)
         
-        let buttonX = (sideMargin * 2 + textWidth + pointsWidth - buttonWidth) / 2
-        let buttonY = textNeededSize.height + buttonMarginTop - upwardOffset
-        let button = UIButton(frame: CGRect(x: buttonX, y: buttonY, width: buttonWidth, height: buttonHeight))
-        button.setTitle("Let's do it!", for: .normal)
-        button.titleLabel?.font = labelFont
-        button.backgroundColor = Constants.pelicanColor
-        button.layer.cornerRadius = buttonCornerRadius;
-        button.clipsToBounds = true;
-        
-        self.addSubview(textLabel)
-        self.addSubview(pointsLabel)
-        self.addSubview(button)
-        
-        let widthConstraint = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: sideMargin * 2 + textWidth + pointsWidth)
-        
-        let heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: textNeededSize.height + buttonMarginTop + buttonHeight + bottomMargin - upwardOffset)
+        let heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: labelHeight - upwardOffset)
         
         self.addConstraint(heightConstraint)
         self.addConstraint(widthConstraint)

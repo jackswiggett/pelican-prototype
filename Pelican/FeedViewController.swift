@@ -8,11 +8,21 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Properties
-    
+    @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    var feedScope: FeedScope?
+    var feedEntries: [FeedEntry] = AppData.feedNearby
+    
+    // MARK: Types
+    
+    enum FeedScope: Int {
+        case nearby = 0
+        case friends
+        case you
+    }
     
     // MARK: View Lifecycle
     
@@ -31,6 +41,46 @@ class FeedViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func scopeChanged(_ sender: UISegmentedControl) {
+        feedScope = FeedScope(rawValue: sender.selectedSegmentIndex)!
+        switch feedScope! {
+        case .nearby:
+            feedEntries = AppData.feedNearby
+        case .friends:
+            feedEntries = AppData.feedFriends
+        case .you:
+            feedEntries = AppData.feedYou
+        }
+        
+        feedTableView.reloadData()
+    }
+    
+    // MARK: Table View Data Source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return feedEntries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Table view cells are reused and should be dequeued using a cell identifier
+        let cellIdentifier = "FeedCell"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FeedTableViewCell
+        
+        let entry = feedEntries[indexPath.row]
+        
+        cell.descriptionLabel.text = entry.description
+        cell.timeLabel.text = entry.time
+        cell.profileImageView.image = entry.users[0].profilePhoto
+        
+        return cell
     }
     
 

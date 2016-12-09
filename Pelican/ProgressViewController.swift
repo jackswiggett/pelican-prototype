@@ -145,10 +145,8 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LeaderboardTableViewCell
         
         let user = leaderboardUsers[indexPath.row]
-        let firstName = user.firstName
-        let lastInitial = String(user.lastName[user.lastName.startIndex]).uppercased()
         
-        cell.nameLabel.text = "\(firstName) \(lastInitial)."
+        cell.nameLabel.text = user.fullName
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.pointsLabel.text = String(numPoints(user))
         cell.profileImageView.image = user.profilePhoto

@@ -18,6 +18,19 @@ class User {
     var pointsThisWeek: Int
     var pointsThisMonth: Int
     
+    var fullName: String {
+        get {
+            let lastInitial = String(lastName[lastName.startIndex]).uppercased()
+            return "\(firstName) \(lastInitial)."
+        }
+    }
+    
+    var feedName: String {
+        get {
+            return self.fullName
+        }
+    }
+    
     init(firstName: String, lastName: String, profilePhoto: UIImage? = nil, points: Int = 0, pointsThisWeek: Int = 0, pointsThisMonth: Int = 0) {
         self.firstName = firstName
         self.lastName = lastName
@@ -41,5 +54,9 @@ class ThisUser : User {
         self.pointsDataAllTime = pointsDataAllTime
         
         super.init(firstName: firstName, lastName: lastName, profilePhoto: profilePhoto, points: points, pointsThisWeek: pointsThisWeek, pointsThisMonth: pointsThisMonth)
+    }
+    
+    override var feedName: String {
+        return "You"
     }
 }
