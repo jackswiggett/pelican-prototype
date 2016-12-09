@@ -11,6 +11,11 @@
 		5F8088A9F5B8AB61F6AE204D /* Pods_Pelican.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5913853E67FDD1A2EF940200 /* Pods_Pelican.framework */; };
 		7821DB521DF21FBF008C81E2 /* ActiveChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821DB511DF21FBF008C81E2 /* ActiveChallengesViewController.swift */; };
 		7821DB561DF22DF8008C81E2 /* NavigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821DB551DF22DF8008C81E2 /* NavigationTableViewController.swift */; };
+		78955E231DFA27C50013928E /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955E221DFA27C50013928E /* Challenge.swift */; };
+		78955E271DFA32080013928E /* ChallengeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955E261DFA32080013928E /* ChallengeAnnotation.swift */; };
+		78955E291DFA3E2B0013928E /* ChallengeAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955E281DFA3E2B0013928E /* ChallengeAnnotationView.swift */; };
+		78955E301DFA697B0013928E /* ChallengeAnnotationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955E2F1DFA697B0013928E /* ChallengeAnnotationDetailView.swift */; };
+		78955E321DFA78B70013928E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955E311DFA78B70013928E /* Constants.swift */; };
 		78BB00DA1DF0F37100C655C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB00D91DF0F37100C655C1 /* AppDelegate.swift */; };
 		78BB00DF1DF0F37100C655C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BB00DD1DF0F37100C655C1 /* Main.storyboard */; };
 		78BB00E11DF0F37100C655C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78BB00E01DF0F37100C655C1 /* Assets.xcassets */; };
@@ -45,6 +50,11 @@
 		5913853E67FDD1A2EF940200 /* Pods_Pelican.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pelican.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7821DB511DF21FBF008C81E2 /* ActiveChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveChallengesViewController.swift; sourceTree = "<group>"; };
 		7821DB551DF22DF8008C81E2 /* NavigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTableViewController.swift; sourceTree = "<group>"; };
+		78955E221DFA27C50013928E /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		78955E261DFA32080013928E /* ChallengeAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeAnnotation.swift; sourceTree = "<group>"; };
+		78955E281DFA3E2B0013928E /* ChallengeAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeAnnotationView.swift; sourceTree = "<group>"; };
+		78955E2F1DFA697B0013928E /* ChallengeAnnotationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeAnnotationDetailView.swift; sourceTree = "<group>"; };
+		78955E311DFA78B70013928E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		78BB00D61DF0F37100C655C1 /* Pelican.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pelican.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BB00D91DF0F37100C655C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78BB00DE1DF0F37100C655C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +120,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		78955E241DFA2FC30013928E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				78BB01021DF0FAAB00C655C1 /* FeedViewController.swift */,
+				7821DB511DF21FBF008C81E2 /* ActiveChallengesViewController.swift */,
+				78BB01041DF0FABA00C655C1 /* FriendsViewController.swift */,
+				78BB01061DF0FAC400C655C1 /* ProgressViewController.swift */,
+				78BB01001DF0F8A800C655C1 /* DiscoverViewController.swift */,
+				7821DB551DF22DF8008C81E2 /* NavigationTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		78955E251DFA304B0013928E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78BB010C1DF1268D00C655C1 /* LeaderboardTableViewCell.swift */,
+				78955E281DFA3E2B0013928E /* ChallengeAnnotationView.swift */,
+				78955E2F1DFA697B0013928E /* ChallengeAnnotationDetailView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		78955E2A1DFA59B30013928E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				78BB00DD1DF0F37100C655C1 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		78BB00CD1DF0F37100C655C1 = {
 			isa = PBXGroup;
 			children = (
@@ -133,21 +174,17 @@
 		78BB00D81DF0F37100C655C1 /* Pelican */ = {
 			isa = PBXGroup;
 			children = (
+				78955E2A1DFA59B30013928E /* Storyboards */,
+				78955E251DFA304B0013928E /* Views */,
+				78955E241DFA2FC30013928E /* ViewControllers */,
 				78BB010E1DF130E600C655C1 /* AppData */,
 				78BB00F91DF0F3AA00C655C1 /* SWRevealViewController */,
 				78BB00D91DF0F37100C655C1 /* AppDelegate.swift */,
-				78BB00DD1DF0F37100C655C1 /* Main.storyboard */,
 				78BB010A1DF106B300C655C1 /* SWRevealNavigationBar.swift */,
-				78BB01021DF0FAAB00C655C1 /* FeedViewController.swift */,
-				7821DB511DF21FBF008C81E2 /* ActiveChallengesViewController.swift */,
-				78BB01041DF0FABA00C655C1 /* FriendsViewController.swift */,
-				78BB01061DF0FAC400C655C1 /* ProgressViewController.swift */,
-				78BB010C1DF1268D00C655C1 /* LeaderboardTableViewCell.swift */,
-				78BB01001DF0F8A800C655C1 /* DiscoverViewController.swift */,
 				78BB00E01DF0F37100C655C1 /* Assets.xcassets */,
 				78BB00E21DF0F37100C655C1 /* LaunchScreen.storyboard */,
 				78BB00E51DF0F37100C655C1 /* Info.plist */,
-				7821DB551DF22DF8008C81E2 /* NavigationTableViewController.swift */,
+				78955E311DFA78B70013928E /* Constants.swift */,
 			);
 			path = Pelican;
 			sourceTree = "<group>";
@@ -177,6 +214,8 @@
 			children = (
 				78BB010F1DF1310D00C655C1 /* AppData.swift */,
 				78BB01111DF1318800C655C1 /* User.swift */,
+				78955E221DFA27C50013928E /* Challenge.swift */,
+				78955E261DFA32080013928E /* ChallengeAnnotation.swift */,
 			);
 			name = AppData;
 			sourceTree = "<group>";
@@ -387,12 +426,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				78BB010B1DF106B300C655C1 /* SWRevealNavigationBar.swift in Sources */,
+				78955E321DFA78B70013928E /* Constants.swift in Sources */,
+				78955E231DFA27C50013928E /* Challenge.swift in Sources */,
+				78955E271DFA32080013928E /* ChallengeAnnotation.swift in Sources */,
 				78BB010D1DF1268D00C655C1 /* LeaderboardTableViewCell.swift in Sources */,
+				78955E291DFA3E2B0013928E /* ChallengeAnnotationView.swift in Sources */,
 				78BB01011DF0F8A800C655C1 /* DiscoverViewController.swift in Sources */,
 				78BB01031DF0FAAB00C655C1 /* FeedViewController.swift in Sources */,
 				7821DB521DF21FBF008C81E2 /* ActiveChallengesViewController.swift in Sources */,
 				78BB01071DF0FAC400C655C1 /* ProgressViewController.swift in Sources */,
 				78BB00DA1DF0F37100C655C1 /* AppDelegate.swift in Sources */,
+				78955E301DFA697B0013928E /* ChallengeAnnotationDetailView.swift in Sources */,
 				78BB01051DF0FABA00C655C1 /* FriendsViewController.swift in Sources */,
 				78BB00FF1DF0F3F700C655C1 /* SWRevealViewController.m in Sources */,
 				7821DB561DF22DF8008C81E2 /* NavigationTableViewController.swift in Sources */,

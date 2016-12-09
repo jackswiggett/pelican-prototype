@@ -6,15 +6,16 @@
 //  Copyright © 2016 Pelitech. All rights reserved.
 //
 
-import UIKit
 import MapKit
 
-class DiscoverViewController: UIViewController {
+class DiscoverViewController: UIViewController, MKMapViewDelegate {
 
     // MARK: Properties
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var challengeMap: MKMapView!
+    let initialLocation = CLLocation(latitude: 37.426264, longitude: -122.171746)
+    let initialRegionDiameter : Double = 1400 // meters
     
     // MARK: View Lifecycle
     
@@ -29,14 +30,35 @@ class DiscoverViewController: UIViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             revealViewController.rearViewRevealWidth = 200
         }
+        
+        initializeMap()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func initializeMap() {
+        challengeMap.delegate = self
+        
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate, initialRegionDiameter, initialRegionDiameter)
+        challengeMap.setRegion(coordinateRegion, animated: true)
+        challengeMap.addAnnotations(AppData.challengeAnnotations)
     }
     
-
+    // MARK: MapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ChallengeAnnotation {
+            let identifier = annotation.challengeType
+            let view: ChallengeAnnotationView
+            if let dequeuedView = challengeMap.dequeueReusableAnnotationView(withIdentifier: identifier.rawValue) {
+                dequeuedView.annotation = annotation
+                view = dequeuedView as! ChallengeAnnotationView
+            } else {
+                view = ChallengeAnnotationView(challengeAnnotation: annotation, reuseIdentifier: annotation.challengeType.rawValue)
+            }
+            return view
+        }
+        return nil
+    }
+    
     /*
     // MARK: - Navigation
 
