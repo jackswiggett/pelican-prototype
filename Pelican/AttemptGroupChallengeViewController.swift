@@ -31,6 +31,8 @@ class AttemptGroupChallengeViewController: UIViewController {
         }
     }
 
+    // MARK: Actions
+    
     @IBAction func viewTip(_ sender: UIButton) {
         let alert = UIAlertController(title: "Tip", message: challenge?.tip, preferredStyle: .alert)
         
@@ -40,7 +42,17 @@ class AttemptGroupChallengeViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - Navigation
+    @IBAction func notImplemented(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: Constants.featureNotImplementedMessage, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: Navigation
     
     @IBAction func goBack(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)

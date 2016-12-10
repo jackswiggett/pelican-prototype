@@ -19,6 +19,8 @@ class ChallengeAddedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        AppData.activeChallenges.append(challenge!)
+        
         message.text = "\"\(challenge!.name)\" has been added to your active challenges"
         
         viewActiveButton?.layer.cornerRadius = Constants.buttonCornerRadius

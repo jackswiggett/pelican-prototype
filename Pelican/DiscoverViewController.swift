@@ -70,14 +70,16 @@ class DiscoverViewController: UIViewController, MKMapViewDelegate {
         challengeMap.addAnnotation(AppData.soloChallengesAnnotation)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: Actions
+    
+    @IBAction func notImplemented(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: Constants.featureNotImplementedMessage, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
+    
 
 }

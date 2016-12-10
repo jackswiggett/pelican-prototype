@@ -42,8 +42,8 @@ class AppData {
     ]
     private static let soloChallenges = [
         SoloChallenge(name: "Ask a stranger what time it is", points: 2, tip: "Start with \"excuse me,\" follow with a casual greeting, and transition straight to your question. No need for a lengthy introduction!"),
-        SoloChallenge(name: "Ask a stranger what \"it's lit\" means", points: 3, tip: "Start with \"excuse me,\", follow with a casual greeting, and transition straight to your question. No need for a lengthy introduction!"),
-        SoloChallenge(name: "Ask for directions to a nearby bookstore", points: 3, tip: "Start with \"excuse me,\", follow with a casual greeting, and transition straight to your question. No need for a lengthy introduction!")
+        SoloChallenge(name: "Ask a stranger what \"it's lit\" means", points: 3, tip: "Start with \"excuse me,\" follow with a casual greeting, and transition straight to your question. No need for a lengthy introduction!"),
+        SoloChallenge(name: "Ask for directions to a nearby bookstore", points: 3, tip: "Start with \"excuse me,\" follow with a casual greeting, and transition straight to your question. No need for a lengthy introduction!")
     ]
     
     static func getGroupChallengeById(_ id: Int) -> GroupChallenge? {
@@ -71,7 +71,8 @@ class AppData {
         ChallengeAnnotation(groupChallenge: getGroupChallengeById(5)!),
         ChallengeAnnotation(groupChallenge: getGroupChallengeById(6)!),
         ChallengeAnnotation(groupChallenge: getGroupChallengeById(7)!),
-        ChallengeAnnotation(soloChallenge: getSoloChallengeById(0)!, recentlyCompletedBy: [otherUsers[2]], location: CLLocationCoordinate2D(latitude: 37.428366, longitude: -122.173648))
+        ChallengeAnnotation(soloChallenge: getSoloChallengeById(0)!, recentlyCompletedBy: [otherUsers[2]], location: CLLocationCoordinate2D(latitude: 37.428366, longitude: -122.173648)),
+        ChallengeAnnotation(soloChallenge: getSoloChallengeById(2)!, recentlyCompletedBy: [otherUsers[5]], location: CLLocationCoordinate2D(latitude: 37.423714, longitude: -122.175376))
     ]
     
     static let soloChallengesAnnotation = SoloChallengesAnnotation(challenges: [
@@ -107,4 +108,7 @@ class AppData {
         FeedEntry(users: [thisUser], challenge: soloChallenges[2], time: "3d"),
         FeedEntry(users: [thisUser], challenge: soloChallenges[1], time: "4d"),
     ]
+    
+    // MARK: Active Challenges
+    static var activeChallenges = [Challenge]()
 }

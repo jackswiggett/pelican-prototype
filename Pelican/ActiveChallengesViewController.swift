@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ActiveChallengesViewController: UIViewController {
+class ActiveChallengesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Properties
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: View Lifecycle
     
@@ -28,20 +29,57 @@ class ActiveChallengesViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: Table View Data Source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return AppData.activeChallenges.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Table view cells are reused and should be dequeued using a cell identifier
+        let cellIdentifier: String
+        if AppData.activeChallenges[indexPath.row] is SoloChallenge {
+            cellIdentifier = "ActiveSoloChallengeCell"
+        } else {
+            cellIdentifier = "ActiveGroupChallengeCell"
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActiveChallengesTableViewCell
+        
+        let challenge = AppData.activeChallenges[indexPath.row]
+        
+        cell.nameLabel.text = challenge.name
+        cell.pointsLabel.text = String(challenge.points) + " pts"
+        if let _ = challenge as? GroupChallenge {
+            cell.challengeTypeIcon.image = #imageLiteral(resourceName: "mapIconGroupChallenge")
+        } else {
+            cell.challengeTypeIcon.image = #imageLiteral(resourceName: "mapIconSoloChallenge")
+        }
+        
+        return cell
+    }
+    
+    // MARK: Navigation
+
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ActiveChallengeViewController {
+            if let selectedCell = sender as? ActiveChallengesTableViewCell {
+                let indexPath = tableView.indexPath(for: selectedCell)!
+                destination.activeChallengeIndex = indexPath.row
+            }
+        }
+    }
 
 }
