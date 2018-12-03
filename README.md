@@ -4,13 +4,13 @@ This repository contains a high-fidelity prototype for the iOS app _Pelican_. Pe
 This prototype was created for CS 147 (Intro to Human-Computer Interaction Design) at Stanford University. The Pelican [website](http://web.stanford.edu/class/cs147/projects/LearningEducation/Pelican/) provides more details about the app and the development process.
 
 ## Screenshots
-<img src="http://jackswiggett.com/img/screenshots/pelican/pelican_1.PNG" width="200px" alt="Pelican screenshot 1" />
-<img src="http://jackswiggett.com/img/screenshots/pelican/pelican_2.PNG" width="200px" alt="Pelican screenshot 2" />
-<img src="http://jackswiggett.com/img/screenshots/pelican/pelican_3.PNG" width="200px" alt="Pelican screenshot 3" />
-<img src="http://jackswiggett.com/img/screenshots/pelican/pelican_4.PNG" width="200px" alt="Pelican screenshot 4" />
-<img src="http://jackswiggett.com/img/screenshots/pelican/pelican_5.PNG" width="200px" alt="Pelican screenshot 5" />
-<img src="http://jackswiggett.com/img/screenshots/pelican/pelican_6.PNG" width="200px" alt="Pelican screenshot 6" />
-<img src="http://jackswiggett.com/img/screenshots/pelican/pelican_7.PNG" width="200px" alt="Pelican screenshot 7" />
+<img src="http://jackswiggett.com/img/pelican-screenshots/pelican00.png" width="200px" alt="Pelican screenshot 1" />
+<img src="http://jackswiggett.com/img/pelican-screenshots/pelican01.png" width="200px" alt="Pelican screenshot 2" />
+<img src="http://jackswiggett.com/img/pelican-screenshots/pelican02.png" width="200px" alt="Pelican screenshot 3" />
+<img src="http://jackswiggett.com/img/pelican-screenshots/pelican03.png" width="200px" alt="Pelican screenshot 4" />
+<img src="http://jackswiggett.com/img/pelican-screenshots/pelican04.png" width="200px" alt="Pelican screenshot 5" />
+<img src="http://jackswiggett.com/img/pelican-screenshots/pelican05.png" width="200px" alt="Pelican screenshot 6" />
+<img src="http://jackswiggett.com/img/pelican-screenshots/pelican06.png" width="200px" alt="Pelican screenshot 7" />
 
 ## Limitations
 This is a prototype, and many features that would be present in the final application have been omitted. These include:
