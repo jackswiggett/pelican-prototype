@@ -1,7 +1,7 @@
 # pelican-prototype
 This repository contains a high-fidelity prototype for the iOS app _Pelican_. Pelican is an app for people who have just moved to a new country. These newcomers are often uncomfortable interacting with locals, and they may find it hard to meet new friends. Pelican provides challenges that newcomers can complete, which force them to get out of their comfort zone and meet new people. Newcomers gain points for completing challenges, and they can compete with friends and track their progress over time.
 
-This prototype was created for CS 147 (Intro to Human-Computer Interaction Design) at Stanford University. The Pelican [website](http://web.stanford.edu/class/cs147/projects/LearningEducation/Pelican/) provides more details about the app and the development process.
+This prototype was created for CS 147 (Intro to Human-Computer Interaction Design) at Stanford University. The Pelican [website](https://hci.stanford.edu/courses/cs147/2016/au/projects/LearningEducation/Pelican/) provides more details about the app and the development process.
 
 ## Screenshots
 <img src="http://jackswiggett.com/img/pelican-screenshots/pelican00.png" width="200px" alt="Pelican screenshot 1" />
